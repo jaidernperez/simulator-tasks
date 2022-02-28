@@ -1,4 +1,4 @@
 
 ## Class Diagram
 
-![Screenshot](assets/DiagramaClases.png)
+![Screenshot](public/DiagramSimulator.png)
