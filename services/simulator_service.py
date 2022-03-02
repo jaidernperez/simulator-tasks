@@ -33,6 +33,15 @@ def get_min_time_doing_works():
             time = time + 1
     return time
 
+def render():
+    render_dataframe = pd.DataFrame(columns=('works', 'machine', 'task_duration', 'time_start', 'time_end'))
+
+    for work in works:
+      for task in work.tasks:
+        render_dataframe = render_dataframe.append({'works':work.name, 'machine':task.machine.name, 'task_duration':task.time_task, 'time_start':task.start_time, 'time_end':task.end_time}, ignore_index=True)
+
+    return render_dataframe
+
 
 # ---------------------------------------------------------------------------------------------------------------------
 dataframe = pd.read_csv("../data/data.csv")
@@ -42,5 +51,4 @@ machines = [Machine(name_machine) for name_machine in columns[1:len(columns)]]
 works = initialize_works(dataframe)
 
 print(f"\nTiempo mínimo de ejecución de todos los trabajos: {get_min_time_doing_works()}\n")
-for item in [i for i in works]:
-    print(item.__str__(), "\n")
+print(render())
