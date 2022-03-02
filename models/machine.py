@@ -8,13 +8,14 @@ class Machine:
 
     def set_initial_state(self):
         # States: MACHINE_AVAILABLE, MACHINE_BUSY
-        super()
+        self.state = "MACHINE_AVAILABLE"
 
     def set_state(self, state_p):
-        super()
+        self.state = state_p
 
     def is_available(self):
-        super()
+        return self.state == "MACHINE_AVAILABLE"
 
     def __str__(self):
         return f"(Name: {self.name}, state: {self.state})"
+
