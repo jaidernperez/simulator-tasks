@@ -37,8 +37,10 @@ def render():
     render_dataframe = pd.DataFrame(columns=('works', 'machine', 'task_duration', 'time_start', 'time_end'))
 
     for work in works:
-      for task in work.tasks:
-        render_dataframe = render_dataframe.append({'works':work.name, 'machine':task.machine.name, 'task_duration':task.time_task, 'time_start':task.start_time, 'time_end':task.end_time}, ignore_index=True)
+        for task in work.tasks:
+            render_dataframe = render_dataframe.append(
+                {'works': work.name, 'machine': task.machine.name, 'task_duration': task.time_task,
+                 'time_start': task.start_time, 'time_end': task.end_time}, ignore_index=True)
 
     return render_dataframe
 
