@@ -33,6 +33,7 @@ def get_min_time_doing_works():
             time = time + 1
     return time
 
+
 def render():
     render_dataframe = pd.DataFrame(columns=('works', 'machine', 'task_duration', 'time_start', 'time_end'))
 
